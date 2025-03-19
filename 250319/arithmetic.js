@@ -1,7 +1,7 @@
 const cl = console.log;
 
-var a = 3;
-var b = 2;
+// var a = 3;
+// var b = 2;
 
 // Arithmetic operators
 // 연산자
@@ -34,3 +34,9 @@ var b = a + 2;
 var c = b - a;
 
 cl(a, b, c);
+
+// 증가 연산자
+var d = 10;
+cl(++d);
+cl(d++);
+cl(d);
