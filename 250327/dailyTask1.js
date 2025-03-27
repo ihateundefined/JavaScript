@@ -13,19 +13,20 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.question("자판기입니다. 100원과 200원 중에 원하시는 금액을 골라 적어주세요 : ", function (price) {
-    var price = Number(price);
-
-  switch (price) {
-    case 100:
-      console.log("블랙커피");
-      break;
-    case 200:
-      console.log("밀크커피");
-      break;
-    default:
-      console.log("해당 금액에 맞는 메뉴가 없습니다.");
-      break;
+rl.question(
+  "자판기입니다. 100원과 200원 중에 원하시는 금액을 골라 적어주세요 : ",
+  function (price) {
+    switch (Number(price)) {
+      case 100:
+        console.log("블랙커피");
+        break;
+      case 200:
+        console.log("밀크커피");
+        break;
+      default:
+        console.log("해당 금액에 맞는 메뉴가 없습니다.");
+        break;
+    }
+    rl.close();
   }
-  rl.close();
-});
+);
