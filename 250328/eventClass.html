@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클래스형</title>
+  </head>
+  <body>
+    <button id="btnclk">버튼</button>
+    <div id="result"></div>
+    <script>
+      class Mouse {
+        handleEvent(event) {
+          switch (event.type) {
+            case "mousedown":
+              result.innerHTML = "마우스 버튼 누름";
+              break;
+
+            case "mouseup":
+              result.innerHTML = "마우스 버튼 놓음";
+              break;
+          }
+        }
+      }
+
+      var mouseHi = new Mouse();
+
+      btnclk.addEventListener("mousedown", mouseHi);
+      btnclk.addEventListener("mouseup", mouseHi);
+    </script>
+  </body>
+</html>

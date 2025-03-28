@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event</title>
+  </head>
+  <body>
+    <!-- 이벤트 핸들러
+    <button onclick="msg()">버튼</button>
+    <script>
+      function msg() {
+        alert("hi");
+      }
+    </script>
+    -->
+
+    <!-- 한 번에 여러 이벤트를 처리할 수 없다 그래서 마지막 이벤트만 적용이 됨
+    <button id="btnclk" onclick="first()">버튼</button>
+    <script>
+      function first() {
+        alert("first message");
+      }
+      btnclk.onclick = function () {
+        alert("hi");
+      };
+    </script>
+     -->
+
+    <!-- addEventListener, removeEventListener
+    <button id="btnclk" hover width="300" height="300" value="test">
+      버튼
+    </button>
+
+    <script>
+      // 엘리먼트, 객체,
+      function first() {
+        alert("첫 번째 메세지");
+        this.width = 100;
+        this.height = 100;
+        this.value = "tomato";
+      }
+
+      btnclk.addEventListener("click", first);
+      btnclk.addEventListener("click", function () {
+        alert("두 번째 메세지");
+      });
+      btnclk.removeEventListener("click", first);
+    </script>
+    -->
+
+    <button id="btnclk">버튼</button>
+    <script>
+      function first() {
+        alert("hi");
+      }
+
+      function msg(event) {
+        alert(event);
+        alert(event.type);
+        alert(event.clientX);
+        alert(event.clientY);
+      }
+
+      btnclk.addEventListener("click", msg);
+    </script>
+  </body>
+</html>
