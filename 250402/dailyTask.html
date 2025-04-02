@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dailyTask</title>
+  </head>
+  <!-- HTML에는 <button> 요소가 있습니다. 이 버튼을 클릭할 때마다 배경색을 랜덤하게 변경하도록 JavaScript를 작성하세요. -->
+  <body>
+    <button id="changeColorBtn">배경색 변경</button>
+
+    <script>
+      function getRandomColor() {
+        const letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      document
+        .getElementById("changeColorBtn")
+        .addEventListener("click", function () {
+          document.body.style.backgroundColor = getRandomColor();
+        });
+    </script>
+  </body>
+</html>
