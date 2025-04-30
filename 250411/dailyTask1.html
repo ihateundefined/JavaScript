@@ -11,17 +11,60 @@
      비밀번호가 일치하는지 확인하는 JavaScript 함수를 작성하세요.
      유효성 검사에 실패할 경우 해당 입력 필드 아래에 에러 메시지를 표시하세요. -->
 
-    <form>
+    <form onsubmit="">
       이름 : <input type="text" id="name" /> 이메일 주소 :
       <input type="email" id="emailAddress" />
       <p id="emailResult"></p>
       비밀번호 : <input type="password" id="password" />
       <p id="passwordResult"></p>
+      <button type="submit">제출</button>
+
     </form>
 
+
+    <form onsubmit="return validateForm()">
+      이름 : <input type="text" id="name" /><br />
+      이메일 주소 :
+      <input type="email" id="emailAddress" />
+      <p id="emailResult" style="color: red;"></p>
+      비밀번호 :
+      <input type="password" id="password" /><br />
+      비밀번호 확인 :
+      <input type="password" id="confirmPassword" />
+    </form>
+
+
+
+
     <script>
-      function verifyEmail() {
-        var email = document.form.email;
+      function validateForm() {
+        var email = document.getElementById("emailAddress").value;
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+
+        var emailResult = document.getElementById("emailResult");
+        var passwordResult = document.getElementById("passwordResult");
+
+        var isValid = true;
+
+        // 이메일 유효성 검사
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          emailResult.textContent = "올바른 이메일 형식이 아닙니다.";
+          isValid = false;
+        } else {
+          emailResult.textContent = "";
+        }
+
+        // 비밀번호 일치 검사
+        if (password !== confirmPassword) {
+          passwordResult.textContent = "비밀번호가 일치하지 않습니다.";
+          isValid = false;
+        } else {
+          passwordResult.textContent = "";
+        }
+
+        return isValid;
       }
     </script>
   </body>
